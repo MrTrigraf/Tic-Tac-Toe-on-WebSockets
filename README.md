@@ -1,1 +1,1 @@
-# Tic-Tac-Toe-on-WebSockets
+# Tic-Tac-Toe on WebSockets

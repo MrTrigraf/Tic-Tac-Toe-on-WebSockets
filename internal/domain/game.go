@@ -30,7 +30,7 @@ type Game struct {
 	oMask         uint16
 	player1       *Player
 	player2       *Player
-	currentMotion uint8
+	currentMotion *uint8
 	stateGame     state
 }
 
@@ -39,7 +39,7 @@ func NewGame(player *Player) *Game {
 		xMask:         0b000000000,
 		oMask:         0b000000000,
 		player1:       player,
-		currentMotion: 0,
+		currentMotion: nil,
 		stateGame:     StateWaiting,
 	}
 }
@@ -71,7 +71,6 @@ func (g *Game) IsWinMove(player *Player) bool {
 	pMask := g.oMask
 	if player.GetSymbol() == X {
 		pMask = g.xMask
-
 	}
 	for _, m := range winMasks {
 		if (m & pMask) == m {
